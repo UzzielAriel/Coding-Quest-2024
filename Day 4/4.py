@@ -8,7 +8,7 @@ ax = plt.axes(projection='3d')
 d = lambda x1, x2, y1, y2, z1, z2: math.sqrt((x1-x2)**2 + (y1-y2)**2  + (z1-z2)**2)
 f = open("4.txt", "r").readlines()[1:]
 
-t = 9999999999999999999
+t = float('inf')
 p = ""
 
 for i in f:

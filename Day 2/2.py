@@ -1,22 +1,20 @@
-def hex(ip):
-    ip_decimal = '.'.join(str(int(ip[i:i+2], 16)) for i in range(0, len(ip), 2))
-    return ip_decimal
+def form(i):
+    d = '.'.join(str(int(i[x:x+2], 16)) for x in range(0, len(i), 2))
+    return d
 
-ship_internal_bytes = 0
-passenger_wifi_bytes = 0
+s = 0
+p = 0
 
-packet_headers = open("2.txt", "r")
+f = open("2.txt", "r")
 
-for header in packet_headers:
-    length = int(header[4:8], 16)
-    source_ip = hex(header[24:32])
-    destination_ip = hex(header[32:40])
+for z in f:
+    l = int(z[4:8], 16)
+    a = form(z[24:32])
+    b = form(z[32:40])
 
-    if source_ip.startswith("192.168.") or destination_ip.startswith("192.168."):
-        ship_internal_bytes += length
-    elif source_ip.startswith("10.0.") or destination_ip.startswith("10.0."):
-        passenger_wifi_bytes += length
+    if a.startswith("192.168.") or b.startswith("192.168."):
+        s += l
+    elif a.startswith("10.0.") or b.startswith("10.0."):
+        p += l
 
-ratio = f"{ship_internal_bytes}/{passenger_wifi_bytes}"
-
-print(":", ratio)
+print(f"{s}/{p}")

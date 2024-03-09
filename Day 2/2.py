@@ -1,5 +1,5 @@
-def form(i):
-    d = '.'.join(str(int(i[x:x+2], 16)) for x in range(0, len(i), 2))
+def form(ip):
+    d = '.'.join(str(int(ip[x:x+2], 16)) for x in range(0, len(ip), 2))
     return d
 
 s = 0
